@@ -23,55 +23,55 @@ while(fast!=NULL && fast->next!=NULL){
 return slow;
 }
 //  merge two list
-// ListNode* mergetwolist(ListNode* t1,ListNode* t2){
-//     ListNode* dummynode= new ListNode(-1);
-//     ListNode* temp=dummynode;
-//    while(t1!=NULL && t2!=NULL){
-//     if(t1->val<t2->val){
+ListNode* mergetwolist(ListNode* t1,ListNode* t2){
+    ListNode* dummynode= new ListNode(-1);
+    ListNode* temp=dummynode;
+   while(t1!=NULL && t2!=NULL){
+    if(t1->val<t2->val){
         
-//         temp->next=t1;
-//         t1=t1->next;
-//     }
-//     else{
-        
-//         temp=temp->next;
-//         t2=t2->next;
-//     }
-//     temp=temp->next;
-//    }
-//     if(t1!=NULL){
-//         temp->next=t1;
-
-//     }
-//     else{
-//         temp->next=t2;
-//     }
-   
-//    return dummynode->next;
-// }
-    ListNode* mergetwolist(ListNode* t1, ListNode* t2) {
-    ListNode* dummynode = new ListNode(-1);
-    ListNode* temp = dummynode;
-
-    while (t1 != NULL && t2 != NULL) {
-        if (t1->val < t2->val) {
-            temp->next = t1;
-            t1 = t1->next;
-        } else {
-            temp->next = t2;   // ✅ MISSING LINE
-            t2 = t2->next;
-        }
-        temp = temp->next;     // ✅ move temp AFTER linking
+        temp->next=t1;
+        t1=t1->next;
     }
+    else{
+        
+        temp->next=t2;
+        t2=t2->next;
+    }
+    temp=temp->next;
+   }
+    if(t1!=NULL){
+        temp->next=t1;
+
+    }
+    else{
+        temp->next=t2;
+    }
+   
+   return dummynode->next;
+}
+    // ListNode* mergetwolist(ListNode* t1, ListNode* t2) {
+    // ListNode* dummynode = new ListNode(-1);
+    // ListNode* temp = dummynode;
+
+    // while (t1 != NULL && t2 != NULL) {
+    //     if (t1->val < t2->val) {
+    //         temp->next = t1;
+    //         t1 = t1->next;
+    //     } else {
+    //         temp->next = t2;   // ✅ MISSING LINE
+    //         t2 = t2->next;
+    //     }
+    //     temp = temp->next;     // ✅ move temp AFTER linking
+    // }
 
     // attach remaining nodes
-    if (t1 != NULL)
-        temp->next = t1;
-    else
-        temp->next = t2;
+//     if (t1 != NULL)
+//         temp->next = t1;
+//     else
+//         temp->next = t2;
 
-    return dummynode->next;
-}
+//     return dummynode->next;
+// }
 
     ListNode* sortList(ListNode* head) {
         if(head==NULL || head->next==NULL) return head;
