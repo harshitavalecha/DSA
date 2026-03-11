@@ -9,9 +9,10 @@ public:
             prefixsum+=nums[i];
             if(mp.count(prefixsum-k)){
                 total+=mp[prefixsum-k];
-               
+               mp[prefixsum]++;
             }
-         mp[prefixsum]++;
+            else
+                 mp[prefixsum]++;
         }
         return total;
     }
